@@ -43,10 +43,11 @@ Anda perlu membuat file konfigurasi `.env` yang berisi informasi rahasia seperti
 2. Copy dan paste teks berikut ke Notepad:
 
     ```bash
-    PRIVATE_KEY='masukkan_private_key_anda_di_sini'
+    PRIVATE_KEY='masukkan_private_key_wallet yang ke drain_anda_di_sini'
     RECIPIENT_WALLET='masukkan_alamat_wallet_penerima_di_sini'
     INFURA_URL='masukkan_infura_rpc_url_anda_di_sini'
     ```
+    note!! kami tidak menyimpan atau mengambil data dari kalian
 
 3. Gantilah nilai `PRIVATE_KEY`, `RECIPIENT_WALLET`, dan `INFURA_URL` dengan informasi yang sesuai:
    - **PRIVATE_KEY**: Kunci privat dari wallet Ethereum Anda (jangan pernah membagikan kunci privat ini kepada orang lain).
