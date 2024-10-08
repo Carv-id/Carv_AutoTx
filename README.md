@@ -46,13 +46,27 @@ Anda perlu membuat file konfigurasi `.env` yang berisi informasi rahasia seperti
 
 3. Gantilah nilai `PRIVATE_KEY`, `RECIPIENT_WALLET`, dan `INFURA_URL` dengan informasi yang sesuai:
    - **PRIVATE_KEY**: Kunci privat dari wallet Ethereum Anda (jangan pernah membagikan kunci privat ini kepada orang lain).
-   - **RECIPIENT_WALLET**: Alamat wallet penerima token $CARV.
-   - **INFURA_URL**: URL RPC dari Infura yang Anda dapatkan setelah membuat akun di [Infura.io](https://infura.io/).
+   - **RECIPIENT_WALLET**: Masukkan alamat wallet penerima yang akan menerima token $CARV.
+   - **INFURA_URL**: Masukkan URL RPC dari Infura yang Anda dapatkan setelah membuat akun di [Infura.io](https://infura.io/).
 4. Simpan file ini dengan nama `.env` di folder yang sama dengan file `carv.py`.
 
-### 4. Menjalankan Script `carv.py`
+### 4. Ubah Address Token $CARV dalam Kode
 
-1. Jika belum ada,buat file bernama `run.bat` di folder yang sama dengan `carv.py`. Caranya:
+Anda perlu memasukkan alamat (address) dari kontrak token $CARV yang ingin digunakan dalam script. Ikuti langkah ini:
+
+1. Buka file `carv.py` dengan editor teks (seperti Notepad).
+2. Cari baris berikut di kode:
+
+    ```python
+    degen_token_address = Web3.to_checksum_address('ISI ADDRESS CARV DISINI')
+    ```
+
+3. Gantilah `'ISI ADDRESS CARV DISINI'` dengan alamat kontrak token $CARV yang sebenarnya. Pastikan Anda mendapatkan alamat kontrak yang benar dari sumber yang terpercaya.
+4. Simpan perubahan pada file `carv.py`.
+
+### 5. Menjalankan Script `carv.py`
+
+1. Buat file bernama `run.bat` di folder yang sama dengan `carv.py`. Caranya:
    - Buka **Notepad** dan salin teks berikut:
 
      ```batch
