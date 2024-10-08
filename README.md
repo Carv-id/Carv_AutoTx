@@ -1,46 +1,84 @@
 # README: Tutorial Penggunaan Script Pengiriman Token $CARV di Base Network
 
 ## Pendahuluan
-Script ini bertujuan untuk memonitor saldo token $CARV di sebuah wallet dan mengirimkannya secara otomatis ke wallet penerima menggunakan Web3 dan Infura. Tutorial ini disusun agar mudah dipahami oleh pengguna awam.
+Script ini bertujuan untuk memonitor saldo token $CARV di sebuah wallet Ethereum dan mengirimkannya secara otomatis ke wallet penerima. Script ini menggunakan teknologi Web3 dan layanan Infura untuk terhubung dengan jaringan blockchain Base.
 
-## Prasyarat
+Panduan ini dirancang untuk membantu pengguna dengan sedikit atau tanpa pengalaman di bidang IT.
 
-### 1. Software yang Dibutuhkan
-- **Python 3.7+**: Pastikan Python telah terpasang di komputer Anda. [Download Python di sini](https://www.python.org/downloads/).
-- **Pip**: Manajer paket Python untuk menginstal library yang dibutuhkan.
-- **Infura Account**: Dapatkan akses ke Infura dan buat proyek baru untuk mendapatkan URL RPC jaringan Base. [Daftar di Infura](https://infura.io/).
-- **Wallet Ethereum**: Anda membutuhkan private key dari wallet Ethereum Anda dan alamat wallet penerima.
+---
 
-### 2. Library Python yang Diperlukan
-Jalankan perintah berikut di terminal untuk menginstal library yang diperlukan:
+## Langkah-Langkah
 
-```bash
-pip install web3 python-dotenv eth-account
-```
+### 1. Pastikan Anda Telah Menginstal Python
 
-### 3. Buat File `.env`
-Buat file bernama `.env` di folder yang sama dengan script `carv.py`, dan tambahkan informasi berikut:
+Python adalah bahasa pemrograman yang dibutuhkan untuk menjalankan script ini. Ikuti langkah berikut untuk menginstal Python:
 
-```bash
-PRIVATE_KEY='masukkan_private_key_anda_di_sini'
-RECIPIENT_WALLET='masukkan_alamat_wallet_penerima_di_sini'
-INFURA_URL='masukkan_infura_rpc_url_anda_di_sini'
-```
+1. Buka [situs Python](https://www.python.org/downloads/).
+2. Klik tombol **Download** yang sesuai dengan sistem operasi Anda (Windows, Mac, atau Linux).
+3. Setelah terunduh, buka file installer tersebut dan **centang kotak** yang bertuliskan "Add Python to PATH".
+4. Klik **Install Now** dan tunggu hingga selesai.
 
-- **PRIVATE_KEY**: Masukkan private key dari wallet pengirim (pastikan ini bersifat rahasia).
-- **RECIPIENT_WALLET**: Masukkan alamat wallet penerima yang akan menerima token.
-- **INFURA_URL**: Masukkan URL RPC dari proyek Infura Anda yang terhubung ke jaringan Base.
+### 2. Instal Program Pendukung (Library Python)
 
-### 4. Jalankan Script
-Untuk menjalankan script `carv.py`, buka terminal atau command prompt di direktori tempat Anda menyimpan file, lalu jalankan perintah berikut:
+Setelah Python terinstal, Anda perlu menginstal program pendukung (library) agar script dapat berjalan. Ikuti langkah-langkah ini:
 
-```bash
-python carv.py
-```
+1. Buka **Command Prompt** (di Windows, ketik *cmd* di kotak pencarian).
+2. Ketik perintah berikut untuk menginstal library yang dibutuhkan:
 
-Script ini akan terus berjalan dan memonitor saldo token $CARV di wallet Anda. Jika saldo ditemukan, token tersebut akan dikirim secara otomatis ke wallet penerima.
+    ```bash
+    pip install web3 python-dotenv eth-account
+    ```
 
-### 5. Troubleshooting
-- **Connection failed to the Base network**: Pastikan URL RPC yang Anda masukkan di `.env` benar dan Anda memiliki koneksi internet yang baik.
-- **Error sending transaction**: Cek saldo wallet Anda untuk memastikan Anda memiliki cukup ETH untuk membayar gas fee.
+3. Tekan **Enter** dan tunggu hingga proses instalasi selesai.
 
+### 3. Siapkan File Konfigurasi
+
+Anda perlu membuat file konfigurasi `.env` yang berisi informasi rahasia seperti kunci privat (private key) dari wallet Ethereum Anda. Ikuti langkah-langkah ini:
+
+1. Buka **Notepad** (atau aplikasi teks lainnya).
+2. Copy dan paste teks berikut ke Notepad:
+
+    ```bash
+    PRIVATE_KEY='masukkan_private_key_anda_di_sini'
+    RECIPIENT_WALLET='masukkan_alamat_wallet_penerima_di_sini'
+    INFURA_URL='masukkan_infura_rpc_url_anda_di_sini'
+    ```
+
+3. Gantilah nilai `PRIVATE_KEY`, `RECIPIENT_WALLET`, dan `INFURA_URL` dengan informasi yang sesuai:
+   - **PRIVATE_KEY**: Kunci privat dari wallet Ethereum Anda (jangan pernah membagikan kunci privat ini kepada orang lain).
+   - **RECIPIENT_WALLET**: Alamat wallet penerima token $CARV.
+   - **INFURA_URL**: URL RPC dari Infura yang Anda dapatkan setelah membuat akun di [Infura.io](https://infura.io/).
+4. Simpan file ini dengan nama `.env` di folder yang sama dengan file `carv.py`.
+
+### 4. Menjalankan Script `carv.py`
+
+1. Jika belum ada,buat file bernama `run.bat` di folder yang sama dengan `carv.py`. Caranya:
+   - Buka **Notepad** dan salin teks berikut:
+
+     ```batch
+     @echo off
+     FOR /L %%i IN (1,1,3) DO (
+         echo Running carv.py - Iteration %%i
+         python carv.py
+     )
+     pause
+     ```
+
+   - Simpan file tersebut dengan nama **run.bat**.
+2. Untuk menjalankan script ini sebanyak 3 kali, klik dua kali file **run.bat**.
+3. Jendela Command Prompt akan terbuka dan menampilkan proses dari script yang sedang dijalankan. Jika ada saldo token $CARV di wallet, script akan mengirimkannya ke alamat penerima.
+
+---
+
+## Troubleshooting (Jika Terjadi Masalah)
+
+### 1. **Error: "Connection failed to the Base network"**
+   - Pastikan URL RPC yang Anda masukkan dalam file `.env` benar.
+   - Periksa koneksi internet Anda.
+
+### 2. **Error: "Error sending transaction"**
+   - Pastikan Anda memiliki cukup saldo ETH di wallet untuk membayar biaya gas.
+
+---
+
+Dengan mengikuti langkah-langkah di atas, Anda sekarang dapat menjalankan script untuk mengirim token $CARV secara otomatis dari wallet Anda!
