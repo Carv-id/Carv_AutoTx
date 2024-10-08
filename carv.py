@@ -66,7 +66,7 @@ def send_degen_token(amount):
 def check_degen_balance():
     try:
         balance = degen_contract.functions.balanceOf(PUBLIC_KEY).call()
-        print(f" Balance: {balance}")
+        print(f"$Carv Balance: {balance}")
         return balance
     except Exception as e:
         print(f"Error fetching balance: {e}")
@@ -76,7 +76,7 @@ def check_degen_balance():
 while True:
     degen_balance = check_degen_balance()
     if degen_balance > 0:
-        print(f"DEGEN tokens detected: {degen_balance}")
+        print(f"$Carv tokens detected: {degen_balance}")
         send_degen_token(degen_balance)  # Send all available tokens
-        print(f"Sent {degen_balance} DEGEN tokens to {RECIPIENT_WALLET}")
+        print(f"Sent {degen_balance} $Carv tokens to {RECIPIENT_WALLET}")
     time.sleep(0.05)
