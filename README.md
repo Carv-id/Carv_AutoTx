@@ -1,9 +1,9 @@
 # README: Tutorial Penggunaan Script Pengiriman Token $CARV di Base Network
 
----
 ## NOTE !!!
 Program ini hanya bekerja jika drainer kalian tidak ngedrain native coin (ETH BASE) nya, program ini dibuat agar bisa adu cepat saat drainer mencoba claim alokasi carv kalian
----
+
+
 ## Pendahuluan
 Script ini bertujuan untuk memonitor saldo token $CARV di sebuah wallet Ethereum dan mengirimkannya secara otomatis ke wallet penerima. Script ini menggunakan teknologi Web3 dan layanan Infura untuk terhubung dengan jaringan blockchain Base.
 
